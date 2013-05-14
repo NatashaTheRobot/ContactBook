@@ -28,7 +28,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Ddh-Pd-LIr">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="person" id="Ddh-Pd-LIr">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -44,14 +44,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="All Contacts" id="QCQ-Ui-pNM">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="Kwe-5E-wIp">
+                        <barButtonItem key="leftBarButtonItem" title="+" id="Kwe-5E-wIp">
                             <connections>
                                 <action selector="addPersonWithButton:" destination="G3S-zC-EQo" id="r6e-WB-xeR"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="A9d-Eq-WS4">
+                            <connections>
+                                <action selector="editWithButton:" destination="G3S-zC-EQo" id="yP2-49-ECH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="Yf9-W4-uG3" id="8C3-4Y-KBD"/>
                         <segue destination="y8s-55-BxH" kind="push" identifier="tableToShowView" id="aif-hO-9ec"/>
                         <segue destination="7er-z9-HNr" kind="modal" identifier="tableToAddPersonView" id="9bO-gz-Ids"/>
                     </connections>
@@ -390,6 +394,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addPersonWithButton:"/>
+                <relationship kind="action" name="editWithButton:"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

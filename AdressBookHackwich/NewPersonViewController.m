@@ -54,8 +54,6 @@
     person.__emailAddress = emailAddressTextField.text;
     person.__phoneNumber = phoneNumberTextField.text;
     
-    NSLog(@"person %@", person);
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

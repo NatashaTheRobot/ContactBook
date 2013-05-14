@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 - (IBAction)addPersonWithButton:(id)sender;
+- (IBAction)editWithButton:(id)sender;
 
 @end
 
@@ -49,7 +50,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:YES];
-    [self.tableView reloadData];
+    [(UITableView *)self.view reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,7 +74,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *identifier = @"person";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+    UITableViewCell *cell = [(UITableView *)self.view dequeueReusableCellWithIdentifier:identifier];
     
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
@@ -113,4 +114,12 @@
     [__people addObject:person];
     [self performSegueWithIdentifier:@"tableToAddPersonView" sender:self];
 }
+
+- (IBAction)editWithButton:(id)sender
+{
+    [(UITableView *)self.view setEditing:YES];
+    // replace text of button to say done!
+}
+
+
 @end
