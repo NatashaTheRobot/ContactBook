@@ -117,8 +117,21 @@
 
 - (IBAction)editWithButton:(id)sender
 {
-    [(UITableView *)self.view setEditing:YES];
-    // replace text of button to say done!
+    if ([((UIBarButtonItem *)sender).title isEqualToString:@"Edit"]) {
+        [(UITableView *)self.view setEditing:YES];
+        ((UIBarButtonItem *)sender).title = @"Done";
+    } else {
+        [(UITableView *)self.view setEditing:NO];
+        ((UIBarButtonItem *)sender).title = @"Edit";
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [__people removeObjectAtIndex:indexPath.row];
+        [(UITableView *)self.view deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 
