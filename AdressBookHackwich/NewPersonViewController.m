@@ -54,11 +54,13 @@
     person.__emailAddress = emailAddressTextField.text;
     person.__phoneNumber = phoneNumberTextField.text;
     
-    [self.navigationController popViewControllerAnimated:YES];
+    NSLog(@"person %@", person);
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancelWithButton:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

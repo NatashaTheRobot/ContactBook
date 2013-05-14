@@ -101,7 +101,7 @@
 {
     if ([segue.destinationViewController isKindOfClass:[ShowViewController class]]) {
         ((ShowViewController *)segue.destinationViewController).person = (Person *)__people[((NSIndexPath *)sender).row];
-    } else if ([segue.destinationViewController isKindOfClass:[ShowViewController class]]) {
+    } else if ([segue.destinationViewController isKindOfClass:[NewPersonViewController class]]) {
        ((NewPersonViewController *)segue.destinationViewController).person = (Person *)[__people lastObject];
     }
 }
